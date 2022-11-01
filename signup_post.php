@@ -1,5 +1,5 @@
 <?php 
-
+require 'db.php';
 session_start();
 
 $flag = true;
@@ -11,7 +11,7 @@ if(empty($name)){
     header('location:signup.php');
 }
 else{
-    if (!preg_match("/^[a-zA-z]*$/", $name)) {
+    if (!preg_match("/^[a-z A-z]*$/", $name)) {
         $_SESSION['NameErrorMsg'] = 'Only Alphabet and Underscore are Allowed';
         $flag = false;
         header('location:signup.php');
@@ -39,6 +39,10 @@ else{
 // for password validation include confirm password
 
 $password = $_POST['password'];
+$confirmPass = $_POST['confirmPassword'];
+
+$after_pass_one = password_hash($password,PASSWORD_DEFAULT);
+$after_pass_two = password_hash($confirmPass,PASSWORD_DEFAULT);
 
 $upper = preg_match('@[A-Z]@', $password);
 $lower = preg_match('@[a-z]@', $password);
@@ -56,8 +60,7 @@ if(empty($password)){
         $_SESSION['PassErrorMsg'] = 'Password Should be 1 uppercase, 1 lowercase, special character <br> and minumum 8 Character !! ';
         $flag = false;
         header('location:signup.php');
-    }
-    $confirmPass = $_POST['confirmPassword'];
+    }  
     if(empty($confirmPass)){
         $_SESSION['PassErrorMsgTwo'] = 'Please Confirm The Password ';
         $flag = false;
@@ -72,9 +75,17 @@ if(empty($password)){
 // value store using flag
 
 if ($flag) {
-    echo "<ul><li><h1> User Name -  $name</h1></li></ul>";
-    echo "<ul><li><h1>User Entered Email - $email</h1></li></ul>";
-    echo "<ul><li><h1>User Secret Key - $password</h1></li></ul>";
+    //databse connection if all info is correct
+
+$insert = "INSERT INTO users(name,email,password,confirmPass)VALUES('$name','$email','$after_pass_one','$after_pass_two')";
+
+
+mysqli_query($db_connection,$insert);
+$_SESSION['successMsg'] = 'New Account Created Successfully';
+header('location:signup.php');
+
+
+
 } else {
     $_SESSION['name_value_store'] = $name;
     $_SESSION['email_value_store'] = $email;

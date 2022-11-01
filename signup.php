@@ -74,16 +74,32 @@ session_start();
             </div>
 
             <div class="screen__background">
-            <span class="screen__background__shape screen__background__shape4"></span>
-            <span class="screen__background__shape screen__background__shape3"></span>
-            <span class="screen__background__shape screen__background__shape2"></span>
-            <span class="screen__background__shape screen__background__shape1"></span>
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
             </div>
         </div>
     </div>
     <!-- partial -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js"></script>
+
+    <?php if (isset($_SESSION['successMsg'])) { ?>
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '<?= $_SESSION['successMsg'] ?>',
+                showConfirmButton: false,
+                timer: 2200
+            })
+        </script>
+    <?php }
+    unset($_SESSION['successMsg']); ?>
+
 </body>
+
 </html>
 
 
