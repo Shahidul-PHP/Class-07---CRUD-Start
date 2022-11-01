@@ -1,1 +1,14 @@
-"# Class-07---CRUD-Start" 
+# Creative IT WEB DEVELOPMENT - Class 07
+
+## Topics - CREATE READ UPDATE DELETE (CRUD ) Data 
+
+## Topics Covered - 
+
+* INSERT DATA
+* VIEW DATA
+* DATABASE 
+* DELETE DATA
+* FULL REGISTRATION PROCESS
+
+
+
