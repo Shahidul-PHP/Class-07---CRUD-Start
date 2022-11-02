@@ -78,11 +78,12 @@ if ($flag) {
     //databse connection if all info is correct
 
 $insert = "INSERT INTO users(name,email,password,confirmPass)VALUES('$name','$email','$after_pass_one','$after_pass_two')";
-
-
 mysqli_query($db_connection,$insert);
+
+
 $_SESSION['successMsg'] = 'New Account Created Successfully';
-header('location:signup.php');
+    header('location:signup.php');
+die();
 
 
 

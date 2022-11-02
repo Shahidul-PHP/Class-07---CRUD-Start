@@ -26,5 +26,3 @@ function ptwo() {
 // class 07 JS Code
 
 
-
-
