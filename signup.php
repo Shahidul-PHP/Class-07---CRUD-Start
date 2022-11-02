@@ -9,9 +9,9 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <title>Create an account</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <title>Create  Account</title>
 
 </head>
 
@@ -21,7 +21,6 @@ session_start();
         <div class="screen">
             <div class="screen__content">
                 <!-- form start -->
-
                 <form class="login" action="signup_post.php" method="POST">
                     <h1>CREATE ACCOUNT</h1>
                     <div class="login__field uname">
@@ -69,6 +68,7 @@ session_start();
                         <span class="button__text">Create Account</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>
+                   
                 </form>
                 <!-- form end -->
             </div>
